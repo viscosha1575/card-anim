@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #c2e59c, #64b3f4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    width: 150px;
+    height: 200px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.card .front, .card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.card .front {
+    background-color: #3498db;
+}
+
+.card .front .circle {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.card .back {
+    background-color: #e74c3c;
+    transform: rotateY(180deg);
+}
+
+/* Эти стили для переворота */
+.card.flipped .front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .back {
+    transform: rotateY(0);
+}
+
+.card .front, .card .back {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: absolute;
+}
