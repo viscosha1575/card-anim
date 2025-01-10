@@ -10,12 +10,16 @@ body {
 
 .card-container {
     display: flex;
-    gap: 20px;
+    gap: 2%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
-    width: 150px;
-    height: 200px;
+    width: 20vw;
+    height: 30vw;
+    max-width: 150px;
+    max-height: 200px;
     perspective: 1000px;
     position: relative;
 }
@@ -26,31 +30,23 @@ body {
     position: absolute;
     backface-visibility: hidden;
     border-radius: 10px;
+    overflow: hidden; /* Чтобы изображение не выходило за границы */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
 }
 
-.card .front {
-    background-color: #3498db;
-}
-
-.card .front .circle {
-    width: 80px;
-    height: 80px;
-    background-color: white;
-    border-radius: 50%;
+.card .front img, .card .back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Подгоняем изображение по размеру */
 }
 
 .card .back {
-    background-color: #e74c3c;
     transform: rotateY(180deg);
 }
 
-/* Эти стили для переворота */
+/* Переворот карточек */
 .card.flipped .front {
     transform: rotateY(180deg);
 }
@@ -62,5 +58,4 @@ body {
 .card .front, .card .back {
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    position: absolute;
 }
